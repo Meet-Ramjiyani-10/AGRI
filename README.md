@@ -7,14 +7,14 @@ KrishiSetu AI is an intelligent, bilingual (English/Marathi) smart office system
 Built for the Pune International Agri Hackathon 2026 under Problem Statement 9 (AI for Smart Agriculture Administration).
 
 🎯 **What It Solves**
-✅ Manual document processing (20–30 min → 2–3 min per application)
-✅ Fragmented systems & data inconsistencies (fuzzy matching)
-✅ Delayed decisions (weeks → hours)
-✅ Untracked grievances (21 days → 48 hours target)
-✅ Fraud (duplicate Aadhaar, fake land records)
-✅ Rural internet issues (offline-first)
-✅ Illiteracy (voice-based grievance)
-✅ Unclaimed schemes (proactive SMS alerts)
+✅ -Manual document processing (20–30 min → 2–3 min per application)
+✅ -Fragmented systems & data inconsistencies (fuzzy matching)
+✅ -Delayed decisions (weeks → hours)
+✅ -Untracked grievances (21 days → 48 hours target)
+✅ -Fraud (duplicate Aadhaar, fake land records)
+✅ -Rural internet issues (offline-first)
+✅ -Illiteracy (voice-based grievance)
+✅ -Unclaimed schemes (proactive SMS alerts)
 
 ✨ **Key Features**
 
@@ -126,17 +126,14 @@ Access at http://localhost:8000.
 | Scheme awareness | Very low | Proactive SMS |
 
 👥 **Team**
-KrishiSetu – 4 members
-Contact: [your-email@example.com]
+KrishiSetu
 Hackathon: Pune International Agri Hackathon 2026
 Theme: PS 9 – AI for Smart Agriculture Administration
 
-📄 **License**
-MIT – free for government and non‑commercial use.
 
 🙏 **Acknowledgements**
 - Maharashtra Government for the problem statement
-- Open‑source libraries (Tesseract, Vosk, FastAPI, React)
+- Open‑source libraries (Tesseract, FastAPI, React)
 - Farmers and officers who shared ground realities
 
 Built with ❤️ for Maharashtra’s farmers.
