@@ -1,0 +1,45 @@
+// Simplified GeoJSON for Maharashtra districts
+// Using representative polygon shapes for demo purposes
+
+const maharashtraGeoJSON = {
+  type: 'FeatureCollection',
+  features: [
+    { type: 'Feature', properties: { name: 'Pune' }, geometry: { type: 'Polygon', coordinates: [[[73.5, 18.2], [74.5, 18.2], [74.5, 19.0], [73.5, 19.0], [73.5, 18.2]]] } },
+    { type: 'Feature', properties: { name: 'Mumbai' }, geometry: { type: 'Polygon', coordinates: [[[72.7, 18.9], [73.1, 18.9], [73.1, 19.3], [72.7, 19.3], [72.7, 18.9]]] } },
+    { type: 'Feature', properties: { name: 'Nagpur' }, geometry: { type: 'Polygon', coordinates: [[[78.5, 20.7], [79.5, 20.7], [79.5, 21.5], [78.5, 21.5], [78.5, 20.7]]] } },
+    { type: 'Feature', properties: { name: 'Nashik' }, geometry: { type: 'Polygon', coordinates: [[[73.2, 19.7], [74.2, 19.7], [74.2, 20.5], [73.2, 20.5], [73.2, 19.7]]] } },
+    { type: 'Feature', properties: { name: 'Aurangabad' }, geometry: { type: 'Polygon', coordinates: [[[75.0, 19.5], [76.0, 19.5], [76.0, 20.3], [75.0, 20.3], [75.0, 19.5]]] } },
+    { type: 'Feature', properties: { name: 'Kolhapur' }, geometry: { type: 'Polygon', coordinates: [[[73.8, 16.4], [74.8, 16.4], [74.8, 17.2], [73.8, 17.2], [73.8, 16.4]]] } },
+    { type: 'Feature', properties: { name: 'Solapur' }, geometry: { type: 'Polygon', coordinates: [[[75.0, 17.2], [76.2, 17.2], [76.2, 18.0], [75.0, 18.0], [75.0, 17.2]]] } },
+    { type: 'Feature', properties: { name: 'Sangli' }, geometry: { type: 'Polygon', coordinates: [[[74.0, 16.7], [75.0, 16.7], [75.0, 17.5], [74.0, 17.5], [74.0, 16.7]]] } },
+    { type: 'Feature', properties: { name: 'Satara' }, geometry: { type: 'Polygon', coordinates: [[[73.5, 17.2], [74.5, 17.2], [74.5, 18.0], [73.5, 18.0], [73.5, 17.2]]] } },
+    { type: 'Feature', properties: { name: 'Ratnagiri' }, geometry: { type: 'Polygon', coordinates: [[[73.0, 16.5], [73.8, 16.5], [73.8, 17.5], [73.0, 17.5], [73.0, 16.5]]] } },
+    { type: 'Feature', properties: { name: 'Amravati' }, geometry: { type: 'Polygon', coordinates: [[[77.0, 20.5], [78.2, 20.5], [78.2, 21.3], [77.0, 21.3], [77.0, 20.5]]] } },
+    { type: 'Feature', properties: { name: 'Akola' }, geometry: { type: 'Polygon', coordinates: [[[76.5, 20.3], [77.3, 20.3], [77.3, 21.0], [76.5, 21.0], [76.5, 20.3]]] } },
+    { type: 'Feature', properties: { name: 'Buldhana' }, geometry: { type: 'Polygon', coordinates: [[[75.8, 20.2], [76.8, 20.2], [76.8, 21.0], [75.8, 21.0], [75.8, 20.2]]] } },
+    { type: 'Feature', properties: { name: 'Yavatmal' }, geometry: { type: 'Polygon', coordinates: [[[78.0, 19.8], [79.0, 19.8], [79.0, 20.6], [78.0, 20.6], [78.0, 19.8]]] } },
+    { type: 'Feature', properties: { name: 'Washim' }, geometry: { type: 'Polygon', coordinates: [[[76.8, 20.0], [77.5, 20.0], [77.5, 20.6], [76.8, 20.6], [76.8, 20.0]]] } },
+    { type: 'Feature', properties: { name: 'Jalna' }, geometry: { type: 'Polygon', coordinates: [[[75.5, 19.5], [76.3, 19.5], [76.3, 20.2], [75.5, 20.2], [75.5, 19.5]]] } },
+    { type: 'Feature', properties: { name: 'Parbhani' }, geometry: { type: 'Polygon', coordinates: [[[76.3, 18.9], [77.2, 18.9], [77.2, 19.7], [76.3, 19.7], [76.3, 18.9]]] } },
+    { type: 'Feature', properties: { name: 'Hingoli' }, geometry: { type: 'Polygon', coordinates: [[[77.0, 19.2], [77.7, 19.2], [77.7, 19.8], [77.0, 19.8], [77.0, 19.2]]] } },
+    { type: 'Feature', properties: { name: 'Nanded' }, geometry: { type: 'Polygon', coordinates: [[[77.0, 18.5], [78.0, 18.5], [78.0, 19.4], [77.0, 19.4], [77.0, 18.5]]] } },
+    { type: 'Feature', properties: { name: 'Latur' }, geometry: { type: 'Polygon', coordinates: [[[76.0, 17.8], [77.0, 17.8], [77.0, 18.7], [76.0, 18.7], [76.0, 17.8]]] } },
+    { type: 'Feature', properties: { name: 'Osmanabad' }, geometry: { type: 'Polygon', coordinates: [[[75.5, 17.5], [76.3, 17.5], [76.3, 18.3], [75.5, 18.3], [75.5, 17.5]]] } },
+    { type: 'Feature', properties: { name: 'Beed' }, geometry: { type: 'Polygon', coordinates: [[[75.0, 18.5], [76.0, 18.5], [76.0, 19.5], [75.0, 19.5], [75.0, 18.5]]] } },
+    { type: 'Feature', properties: { name: 'Jalgaon' }, geometry: { type: 'Polygon', coordinates: [[[74.8, 20.3], [76.0, 20.3], [76.0, 21.2], [74.8, 21.2], [74.8, 20.3]]] } },
+    { type: 'Feature', properties: { name: 'Dhule' }, geometry: { type: 'Polygon', coordinates: [[[73.8, 20.5], [74.8, 20.5], [74.8, 21.3], [73.8, 21.3], [73.8, 20.5]]] } },
+    { type: 'Feature', properties: { name: 'Nandurbar' }, geometry: { type: 'Polygon', coordinates: [[[73.3, 21.0], [74.2, 21.0], [74.2, 21.8], [73.3, 21.8], [73.3, 21.0]]] } },
+    { type: 'Feature', properties: { name: 'Ahmednagar' }, geometry: { type: 'Polygon', coordinates: [[[74.0, 18.8], [75.2, 18.8], [75.2, 19.8], [74.0, 19.8], [74.0, 18.8]]] } },
+    { type: 'Feature', properties: { name: 'Thane' }, geometry: { type: 'Polygon', coordinates: [[[72.9, 19.0], [73.5, 19.0], [73.5, 19.7], [72.9, 19.7], [72.9, 19.0]]] } },
+    { type: 'Feature', properties: { name: 'Palghar' }, geometry: { type: 'Polygon', coordinates: [[[72.5, 19.5], [73.3, 19.5], [73.3, 20.3], [72.5, 20.3], [72.5, 19.5]]] } },
+    { type: 'Feature', properties: { name: 'Raigad' }, geometry: { type: 'Polygon', coordinates: [[[73.0, 17.8], [73.7, 17.8], [73.7, 18.8], [73.0, 18.8], [73.0, 17.8]]] } },
+    { type: 'Feature', properties: { name: 'Sindhudurg' }, geometry: { type: 'Polygon', coordinates: [[[73.2, 15.8], [73.8, 15.8], [73.8, 16.5], [73.2, 16.5], [73.2, 15.8]]] } },
+    { type: 'Feature', properties: { name: 'Wardha' }, geometry: { type: 'Polygon', coordinates: [[[78.5, 20.0], [79.3, 20.0], [79.3, 20.7], [78.5, 20.7], [78.5, 20.0]]] } },
+    { type: 'Feature', properties: { name: 'Chandrapur' }, geometry: { type: 'Polygon', coordinates: [[[79.0, 19.5], [80.0, 19.5], [80.0, 20.4], [79.0, 20.4], [79.0, 19.5]]] } },
+    { type: 'Feature', properties: { name: 'Gondia' }, geometry: { type: 'Polygon', coordinates: [[[79.5, 21.0], [80.5, 21.0], [80.5, 21.8], [79.5, 21.8], [79.5, 21.0]]] } },
+    { type: 'Feature', properties: { name: 'Bhandara' }, geometry: { type: 'Polygon', coordinates: [[[79.5, 20.5], [80.3, 20.5], [80.3, 21.2], [79.5, 21.2], [79.5, 20.5]]] } },
+    { type: 'Feature', properties: { name: 'Gadchiroli' }, geometry: { type: 'Polygon', coordinates: [[[79.5, 19.5], [80.8, 19.5], [80.8, 20.5], [79.5, 20.5], [79.5, 19.5]]] } },
+  ],
+};
+
+export default maharashtraGeoJSON;

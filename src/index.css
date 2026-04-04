@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@theme {
+  --color-saffron: #FF9933;
+  --color-saffron-dark: #E68A2E;
+  --color-saffron-light: #FFF3E0;
+  --color-green-govt: #138808;
+  --color-green-govt-dark: #0D6606;
+  --color-green-govt-light: #E8F5E9;
+  --color-navy: #000080;
+  --color-navy-light: #E8E8F5;
+  --color-govt-bg: #F5F5F5;
+  --color-govt-white: #FFFFFF;
+  --color-govt-border: #D0D0D0;
+  --color-govt-text: #333333;
+  --color-govt-text-light: #666666;
+  --color-danger: #D32F2F;
+  --color-danger-light: #FFEBEE;
+  --color-warning: #F57F17;
+  --color-warning-light: #FFF8E1;
+  --font-family-primary: 'Noto Sans Devanagari', 'Noto Sans', Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family-primary);
+  background-color: var(--color-govt-bg);
+  color: var(--color-govt-text);
+  line-height: 1.6;
+}
+
+/* High contrast mode */
+body.high-contrast {
+  --color-govt-bg: #000000;
+  --color-govt-white: #1a1a1a;
+  --color-govt-text: #FFFFFF;
+  --color-govt-text-light: #CCCCCC;
+  --color-govt-border: #FFFFFF;
+  --color-saffron-light: #332200;
+  --color-green-govt-light: #002200;
+  --color-navy-light: #000033;
+  --color-danger-light: #330000;
+  --color-warning-light: #332200;
+}
+
+body.high-contrast .bg-white {
+  background-color: #1a1a1a !important;
+  color: #FFFFFF !important;
+}
+
+body.high-contrast .text-gray-600,
+body.high-contrast .text-gray-500,
+body.high-contrast .text-gray-700 {
+  color: #CCCCCC !important;
+}
+
+body.high-contrast .border-gray-200,
+body.high-contrast .border-gray-300 {
+  border-color: #666666 !important;
+}
+
+/* Font size scaling */
+body.font-large {
+  font-size: 18px;
+}
+
+body.font-larger {
+  font-size: 20px;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-govt-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-govt-border);
+  border-radius: 4px;
+}
+
+/* Leaflet fixes */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
