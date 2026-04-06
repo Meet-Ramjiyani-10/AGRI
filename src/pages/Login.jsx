@@ -48,13 +48,15 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--color-govt-bg)]">
+    <div className="min-h-screen bg-[var(--color-govt-bg)] flex flex-col">
       {/* Top accent */}
       <div className="h-2 bg-gradient-to-r from-[var(--color-saffron)] via-white to-[var(--color-green-govt)]"></div>
 
-      <div className="max-w-5xl mx-auto px-4 py-8">
-        {/* Language toggle at top right */}
-        <div className="flex justify-end mb-4">
+      <div className="flex-1 flex items-start justify-center px-4 py-8 md:py-12">
+        <div className="w-full max-w-[1200px]">
+          <div className="bg-white border border-[var(--color-govt-border)] rounded-lg shadow-sm px-4 md:px-8 py-6 md:py-8">
+            {/* Language toggle at top right */}
+            <div className="flex justify-end mb-4">
           <select
             value={language}
             onChange={(e) => setLanguage(e.target.value)}
@@ -64,10 +66,10 @@ export default function Login() {
             <option value="en">🌐 English</option>
             <option value="mr">🇮🇳 मराठी</option>
           </select>
-        </div>
+            </div>
 
         {/* Header */}
-        <div className="text-center mb-10">
+            <div className="text-center mb-8 md:mb-10">
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[var(--color-saffron-light)] border-3 border-[var(--color-saffron)] mb-4">
             <span className="text-4xl">🌾</span>
           </div>
@@ -75,19 +77,19 @@ export default function Login() {
           <p className="text-lg text-[var(--color-govt-text-light)]">KrishiSetu AI – {language === 'mr' ? 'स्मार्ट कृषी प्रशासन प्रणाली' : 'Smart Agriculture Administration System'}</p>
           <p className="text-sm text-[var(--color-govt-text-light)] mt-1">{language === 'mr' ? 'महाराष्ट्र शासन | कृषी विभाग' : 'Government of Maharashtra | Agriculture Department'}</p>
           <div className="w-24 h-0.5 bg-[var(--color-saffron)] mx-auto mt-3"></div>
-        </div>
+            </div>
 
         {/* Role selection cards */}
-        <div className="grid md:grid-cols-3 gap-6 mb-10">
+            <div className="grid md:grid-cols-3 gap-4 md:gap-6 mb-8">
           {roles.map((r) => (
             <button
               key={r.key}
               onClick={() => handleRoleSelect(r.key)}
-              className="bg-white border-2 border-gray-200 rounded p-6 text-left hover:shadow-md transition-all group"
+              className="bg-white border-2 border-gray-200 rounded-md p-5 text-center hover:shadow-md transition-all group"
               style={{ borderTopColor: r.color, borderTopWidth: '4px' }}
               aria-label={`${t(r.titleKey)} ${language === 'mr' ? 'म्हणून लॉगिन करा' : 'login'}`}
             >
-              <div className="flex items-center gap-3 mb-3">
+              <div className="flex flex-col items-center gap-2 mb-3">
                 <div
                   className="w-12 h-12 rounded-full flex items-center justify-center text-2xl"
                   style={{ backgroundColor: r.lightColor }}
@@ -108,23 +110,25 @@ export default function Login() {
               </div>
             </button>
           ))}
-        </div>
+            </div>
 
         {/* Info bar */}
-        <div className="bg-white border border-[var(--color-govt-border)] rounded p-4 text-center">
+            <div className="bg-white border border-[var(--color-govt-border)] rounded p-4 text-center">
           <p className="text-sm text-[var(--color-govt-text-light)]">
             {t('loginDesc')}
           </p>
-        </div>
+            </div>
 
         {/* Pilot readiness link */}
-        <div className="text-center mt-6">
+            <div className="text-center mt-5">
           <a
             href="/pilot"
             className="inline-flex items-center gap-2 text-sm text-[var(--color-green-govt)] hover:underline font-medium"
           >
             {t('pilotInfo')}
           </a>
+            </div>
+          </div>
         </div>
       </div>
 

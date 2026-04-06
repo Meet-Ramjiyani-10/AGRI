@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function LoadingMessages({ onComplete }) {
   const { t, isMarathi } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
+  const hasCalledComplete = useRef(false);
 
   const loadingSteps = [
     { key: 'loadingDoc' },
@@ -21,13 +22,14 @@ export default function LoadingMessages({ onComplete }) {
         setCurrentIndex(prev => prev + 1);
       }, 1200);
       return () => clearTimeout(timer);
-    } else {
+    } else if (!hasCalledComplete.current) {
       setIsComplete(true);
+      hasCalledComplete.current = true;
       if (onComplete) {
         setTimeout(onComplete, 800);
       }
     }
-  }, [currentIndex, onComplete]);
+  }, [currentIndex]);
 
   return (
     <div className="bg-white border border-[var(--color-govt-border)] rounded p-4" role="status" aria-live="polite">

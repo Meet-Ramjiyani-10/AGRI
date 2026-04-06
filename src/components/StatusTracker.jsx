@@ -5,13 +5,14 @@ export default function StatusTracker({ currentStatus }) {
   
   const steps = [
     { key: 'submitted', labelKey: 'submitted', icon: '📋' },
-    { key: 'processing', labelKey: 'processing', icon: '⚙️' },
+    { key: 'processing', labelKey: 'processingStatus', icon: '⚙️' },
     { key: 'pending_officer', labelKey: 'officerReview', icon: '👤' },
     { key: 'approved', labelKey: 'approved', icon: '✅' },
+    { key: 'disbursement', labelKey: 'disbursement', icon: '💸' },
     { key: 'rejected', labelKey: 'rejected', icon: '❌' },
   ];
 
-  const statusOrder = { submitted: 0, processing: 1, pending_officer: 2, approved: 3, rejected: 3 };
+  const statusOrder = { submitted: 0, processing: 1, pending_officer: 2, approved: 3, disbursement: 4, rejected: 3 };
   const currentIndex = statusOrder[currentStatus] ?? 0;
   const isRejected = currentStatus === 'rejected';
 
@@ -19,7 +20,7 @@ export default function StatusTracker({ currentStatus }) {
     <div className="w-full py-4" role="progressbar" aria-label={isMarathi ? 'अर्ज स्थिती' : 'Application Status'} aria-valuenow={currentIndex} aria-valuemax={3}>
       <div className="flex items-center justify-between relative">
         {steps.filter(s => {
-          if (isRejected && s.key === 'approved') return false;
+          if (isRejected && (s.key === 'approved' || s.key === 'disbursement')) return false;
           if (!isRejected && s.key === 'rejected') return false;
           return true;
         }).map((step, idx, arr) => {

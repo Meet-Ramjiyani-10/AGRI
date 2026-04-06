@@ -25,7 +25,7 @@ function App() {
       {/* SMS Notification popups */}
       <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-2">
         {notifications.map(n => (
-          <SMSNotification key={n.id} message={n.message} />
+          <SMSNotification key={n.id} message={n.message} type={n.type} />
         ))}
       </div>
     </div>

@@ -12,6 +12,16 @@ export function AppProvider({ children }) {
   const [audit, setAudit] = useState(initialAudit);
   const [notifications, setNotifications] = useState([]);
   const [offlineMode, setOfflineMode] = useState(false);
+  // INTEGRATION ADDITION
+  const [apiMode, setApiModeState] = useState(() => {
+    const saved = localStorage.getItem('krishi_api_mode');
+    return saved === 'prod' ? 'production' : (saved || 'mock');
+  });
+  const setApiMode = useCallback((mode) => {
+    const normalized = mode === 'prod' ? 'production' : mode;
+    localStorage.setItem('krishi_api_mode', normalized);
+    setApiModeState(normalized);
+  }, []);
 
   const increaseFontSize = useCallback(() => {
     setFontSize(prev => Math.min(prev + 1, 2));
@@ -32,24 +42,26 @@ export function AppProvider({ children }) {
 
     if (officerAction) {
       const app = initialApps.find(a => a.id === appId) || applications.find(a => a.id === appId);
+      const aiRecommendation = app?.aiRecommendation === 'approve' ? 'Approve' : app?.aiRecommendation === 'reject' ? 'Reject' : 'Review';
+      const isOverride = (aiRecommendation === 'Approve' && officerAction === 'Reject') ||
+        (aiRecommendation === 'Reject' && officerAction === 'Approve');
       const newAuditEntry = {
         id: audit.length + 1,
         timestamp: new Date().toLocaleString('en-IN'),
-        officer: 'अभिजित देशमुख',
-        action: officerAction,
+        officer: 'Abhijit Desai',
+        action: isOverride ? 'Override' : officerAction,
         appId: appId,
-        aiRecommendation: app?.aiRecommendation === 'approve' ? 'मंजूर करा' : app?.aiRecommendation === 'reject' ? 'नाकारा' : 'पुनरावलोकन करा',
-        finalDecision: officerAction,
-        overridden: (app?.aiRecommendation === 'approve' && officerAction === 'नाकारले') ||
-                     (app?.aiRecommendation === 'reject' && officerAction === 'मंजूर'),
+        aiRecommendation,
+        finalDecision: newStatus === 'approved' ? 'Approved' : newStatus === 'rejected' ? 'Rejected' : 'Pending Officer',
+        overridden: isOverride,
       };
       setAudit(prev => [newAuditEntry, ...prev]);
     }
   }, [audit.length, applications]);
 
-  const addNotification = useCallback((message) => {
+  const addNotification = useCallback((message, type = 'success') => {
     const id = Date.now();
-    setNotifications(prev => [...prev, { id, message, time: new Date() }]);
+    setNotifications(prev => [...prev, { id, message, type, time: new Date() }]);
     setTimeout(() => {
       setNotifications(prev => prev.filter(n => n.id !== id));
     }, 5000);
@@ -72,6 +84,7 @@ export function AppProvider({ children }) {
       audit,
       notifications, addNotification,
       offlineMode, setOfflineMode,
+      apiMode, setApiMode,
     }}>
       {children}
     </AppContext.Provider>

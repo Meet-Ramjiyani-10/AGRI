@@ -58,10 +58,10 @@ export default function PilotReadiness() {
   ];
 
   return (
-    <div className="min-h-screen bg-[var(--color-govt-bg)]">
-      {!role && <div className="h-2 bg-gradient-to-r from-[var(--color-saffron)] via-white to-[var(--color-green-govt)]"></div>}
+    <div className="min-h-screen w-full flex flex-col items-center bg-[var(--color-govt-bg)]">
+      {!role && <div className="h-2 w-full bg-gradient-to-r from-[var(--color-saffron)] via-white to-[var(--color-green-govt)]"></div>}
 
-      <div className="max-w-4xl mx-auto px-4 py-8">
+      <div className="w-full max-w-4xl px-4 py-8">
         {/* Language toggle */}
         <div className="flex justify-end mb-4">
           <select

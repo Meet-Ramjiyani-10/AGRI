@@ -81,6 +81,8 @@ export const translations = {
     high: 'High',
     medium: 'Medium',
     routine: 'Routine',
+    urgent: 'Urgent',
+    emergency: 'Emergency',
     insuranceDelay: 'Insurance Delay',
     subsidyDelay: 'Subsidy Delay',
     applicationStatusCat: 'Application Status',
@@ -142,9 +144,27 @@ export const translations = {
     yes: 'Yes',
     no: 'No',
     eligibleNotApplied: 'Eligible Farmers Who Haven\'t Applied',
+    eligibleNotAppliedLong: 'Eligible but Not Applied',
+    schemeBenefit: 'Scheme Benefit',
+    smsSentMarathi: 'SMS sent to farmer in Marathi',
+    escalationSent: 'Alert sent to District Collector.',
+    workflowStatus: 'Workflow Status',
+    resolved: 'Resolved',
+    manualReviewRecommended: 'Manual Review Recommended',
+    documentPreview: 'Document Preview',
+    speakComplaint: 'Speak Complaint (Marathi/Hindi)',
+    chooseLanguageForVoice: 'Voice Language',
+    marathi: 'Marathi',
+    hindi: 'Hindi',
+    applicationIdGenerated: 'Your Application ID',
+    saveForTracking: 'Save this for tracking.',
+    disbursement: 'Disbursement',
+    normal: 'Normal',
+    vsDistrictAvg: 'vs District Avg.',
     sendSMS: 'Send SMS',
     smsSent: 'SMS Sent',
-    beforeAfterTitle: 'Before vs After KrishiSetu AI',
+    beforeAfterTitle: 'Efficiency Impact',
+    efficiencyLine: 'Manual Processing: 20-30 min/application → KrishiSetu AI: 2-3 min/application',
     metric: 'Metric',
     manual: 'Manual Process',
     withAI: 'With KrishiSetu AI',
@@ -152,7 +172,7 @@ export const translations = {
     
     // Status tracker
     submitted: 'Submitted',
-    processingStatus: 'Processing',
+    processingStatus: 'Document Verification',
     officerReview: 'Officer Review',
     decision: 'Decision',
     
@@ -285,6 +305,8 @@ export const translations = {
     high: 'तातडीचे',
     medium: 'सामान्य',
     routine: 'नियमित',
+    urgent: 'तातडीचे',
+    emergency: 'अत्यावश्यक',
     insuranceDelay: 'विमा विलंब',
     subsidyDelay: 'अनुदान विलंब',
     applicationStatusCat: 'अर्ज स्थिती',
@@ -346,9 +368,27 @@ export const translations = {
     yes: 'होय',
     no: 'नाही',
     eligibleNotApplied: 'पात्र पण अर्ज न केलेले शेतकरी',
+    eligibleNotAppliedLong: 'पात्र पण अर्ज न केलेले',
+    schemeBenefit: 'योजना लाभ',
+    smsSentMarathi: 'शेतकऱ्याला मराठीत SMS पाठवला',
+    escalationSent: 'इशारा जिल्हाधिकाऱ्यांना पाठवला गेला.',
+    workflowStatus: 'कार्यप्रवाह स्थिती',
+    resolved: 'निकाली',
+    manualReviewRecommended: 'मॅन्युअल पडताळणी शिफारसीय',
+    documentPreview: 'कागदपत्र पूर्वावलोकन',
+    speakComplaint: 'तक्रार बोला (मराठी/हिंदी)',
+    chooseLanguageForVoice: 'आवाज भाषा',
+    marathi: 'मराठी',
+    hindi: 'हिंदी',
+    applicationIdGenerated: 'आपला अर्ज आयडी',
+    saveForTracking: 'ट्रॅकिंगसाठी जतन करा.',
+    disbursement: 'अनुदान वितरित',
+    normal: 'सामान्य',
+    vsDistrictAvg: 'जिल्हा सरासरीशी तुलना',
     sendSMS: 'SMS पाठवा',
     smsSent: 'SMS पाठवला',
-    beforeAfterTitle: 'KrishiSetu AI आधी विरुद्ध नंतर',
+    beforeAfterTitle: 'कार्यक्षमता परिणाम',
+    efficiencyLine: 'मॅन्युअल प्रक्रिया: 20-30 मिनिटे/अर्ज → KrishiSetu AI: 2-3 मिनिटे/अर्ज',
     metric: 'मेट्रिक',
     manual: 'मॅन्युअल प्रक्रिया',
     withAI: 'KrishiSetu AI सह',
@@ -356,7 +396,7 @@ export const translations = {
     
     // Status tracker
     submitted: 'सादर केले',
-    processingStatus: 'प्रक्रिया सुरू',
+    processingStatus: 'कागदपत्र पडताळणी',
     officerReview: 'अधिकारी पुनरावलोकन',
     decision: 'निर्णय',
     
@@ -417,7 +457,7 @@ export function LanguageProvider({ children }) {
   // Default language based on role will be set when role changes
   const [language, setLanguage] = useState(() => {
     const saved = localStorage.getItem('krishisetu_language');
-    return saved || 'mr'; // Default to Marathi initially
+    return saved || 'en'; // Default English; farmer flow sets Marathi on role entry
   });
 
   useEffect(() => {

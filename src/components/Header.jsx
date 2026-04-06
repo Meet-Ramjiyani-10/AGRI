@@ -1,12 +1,11 @@
 import { useApp } from '../context/AppContext';
 import { useLanguage } from '../context/LanguageContext';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Header() {
-  const { role, setRole, fontSize, increaseFontSize, decreaseFontSize, highContrast, toggleHighContrast } = useApp();
+  const { role, setRole, fontSize, increaseFontSize, decreaseFontSize, highContrast, toggleHighContrast, apiMode, setApiMode, addNotification } = useApp();
   const { language, setLanguage, t } = useLanguage();
   const navigate = useNavigate();
-  const location = useLocation();
 
   const roleLabels = {
     farmer: t('farmerPortal'),
@@ -19,12 +18,22 @@ export default function Header() {
     navigate('/');
   };
 
-  return (
-    <header className="bg-white border-b-2 border-[var(--color-saffron)] shadow-sm no-print" role="banner">
-      {/* Top accent bar */}
-      <div className="h-1.5 bg-gradient-to-r from-[var(--color-saffron)] via-white to-[var(--color-green-govt)]"></div>
+  const handleApiToggle = () => {
+    const nextMode = apiMode === 'mock' ? 'production' : 'mock';
+    setApiMode(nextMode);
+    if (nextMode === 'production') {
+      addNotification('🚀 Production mode – ready to connect to real MahaDBT, Mahabhulekh, Aaple Sarkar APIs with official credentials.', 'info');
+    } else {
+      addNotification('✅ Mock mode enabled. Using simulated government APIs.', 'success');
+    }
+  };
 
-      <div className="max-w-screen-xl mx-auto px-4 py-2">
+  return (
+    <header className="bg-white border-b-2 border-[var(--color-saffron)] shadow-sm no-print w-full flex flex-col items-center" role="banner">
+      {/* Top accent bar */}
+      <div className="h-1.5 w-full bg-gradient-to-r from-[var(--color-saffron)] via-white to-[var(--color-green-govt)]"></div>
+
+      <div className="w-full max-w-[1400px] px-4 py-2">
         <div className="flex items-center justify-between flex-wrap gap-2">
           {/* Left: Logo & Title */}
           <div className="flex items-center gap-3">
@@ -62,6 +71,19 @@ export default function Header() {
               <option value="en">🌐 English</option>
               <option value="mr">🇮🇳 मराठी</option>
             </select>
+
+            <button
+              onClick={handleApiToggle}
+              className={`text-xs px-3 py-1.5 rounded border font-semibold ${
+                apiMode === 'mock'
+                  ? 'bg-[var(--color-green-govt)] text-white border-[var(--color-green-govt)]'
+                  : 'bg-gray-200 text-gray-800 border-gray-300'
+              }`}
+              aria-label="API Gateway Mode"
+              title="API Gateway Mode"
+            >
+              🌐 API: {apiMode === 'mock' ? 'MOCK' : 'PRODUCTION'}
+            </button>
 
             {/* Font size controls */}
             <div className="flex items-center gap-1 border border-[var(--color-govt-border)] rounded px-2 py-1" role="group" aria-label={language === 'mr' ? 'अक्षर आकार बदला' : 'Change font size'}>
